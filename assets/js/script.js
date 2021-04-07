@@ -1,4 +1,4 @@
-var inputEls = document.querySelectorAll(".event-input");
+var inputEls = document.querySelectorAll("input");
 var hourEls = document.querySelectorAll(".hour");
 // Set date on header with the right format
 function displayDate() {
@@ -9,7 +9,6 @@ displayDate();
 
 // Figure out the present hour, past, future
 // Assign classes based on this
-console.log(inputEls);
 // Iterate over each of the hours in the planner
 // Compare with current hour to assign classes that correspond to past/ present/ future
 $.each(hourEls, function(i, hourEls){
