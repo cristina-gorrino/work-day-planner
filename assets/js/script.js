@@ -1,4 +1,4 @@
-var inputEls = document.querySelectorAll("input");
+var inputEls  = document.querySelectorAll("input");
 var hourEls = document.querySelectorAll(".hour");
 // Set date on header with the right format
 function displayDate() {
