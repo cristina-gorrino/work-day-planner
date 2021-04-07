@@ -1,6 +1,5 @@
 var inputEls  = document.querySelectorAll("input");
-
-// Set date on header with the right format
+// Set date on jumbotron with the right format
 function displayDate() {
     var currentDate = moment().format("dddd, MMMM Do, YYYY")
     $("#currentDay").text(currentDate);
@@ -24,10 +23,16 @@ function styleHourSections(){
 }
 styleHourSections();
 
+console.log(inputEls);
+function saveEvents(event) {
+console.log(`save the ${event}event`);
+}
+
+inputEls.forEach(input => {
+    input.addEventListener("click", saveEvents);
+});
 
 
-
-// Use moment to compare the "hour" text with calculated hour
 
 // Save inputs and persist to local storage
 
