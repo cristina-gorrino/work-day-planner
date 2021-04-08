@@ -1,4 +1,4 @@
-var inputEls  = document.querySelectorAll("input");
+var inputEls  = $("input");
 // Set date on jumbotron with the right format
 function displayDate() {
     var currentDate = moment().format("dddd, MMMM Do, YYYY")
@@ -10,7 +10,7 @@ displayDate();
 // Iterate over each of the hours in the planner
 // Compare with current hour to assign classes that correspond to past/ present/ future
 function styleHourSections(){
-    var hourEls = document.querySelectorAll(".hour");
+    var hourEls = $(".hour");
     $.each(hourEls, function(i, hourEls){
         if (moment().format("hh a") === hourEls.textContent) {
             hourEls.nextElementSibling.className = "present";
@@ -24,16 +24,16 @@ function styleHourSections(){
 styleHourSections();
 
 console.log(inputEls);
-function saveEvents(event) {
-console.log(`save the ${event}event`);
-}
 
-inputEls.forEach(input => {
-    input.addEventListener("click", saveEvents);
-});
+// Listener for save buttons to save inputs to local storage
+$(".saveBtn").on("click", function() {
+var savedEvents = {
+    hour: $(this).siblings(".hour").text(),
+    event: $(this).siblings("input").val(),
+};
+
+localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
+})
 
 
-
-// Save inputs and persist to local storage
-
-// Listener for save buttons
+// Get stored elements and show them again
