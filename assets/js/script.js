@@ -1,4 +1,5 @@
 var inputEls  = $("input");
+var savedEvents = [];
 // Set date on jumbotron with the right format
 function displayDate() {
     var currentDate = moment().format("dddd, MMMM Do, YYYY")
@@ -27,10 +28,11 @@ console.log(inputEls);
 
 // Listener for save buttons to save inputs to local storage
 $(".saveBtn").on("click", function() {
-var savedEvents = {
-    hour: $(this).siblings(".hour").text(),
-    event: $(this).siblings("input").val(),
-};
+
+    var timeBlock = $(this).siblings(".hour").text();
+    var event = $(this).siblings("input").val();
+    savedEvents.push({"timeBlock": timeBlock, "event": event});
+
 
 localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
 })
