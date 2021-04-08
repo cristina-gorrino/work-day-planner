@@ -29,22 +29,26 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  
 }
 .time-block {
   text-align: center;
   border-radius: 15px;
+  
 }
 
 .row {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+  
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  padding: 5px;
 }
 
 .past {
@@ -60,6 +64,7 @@ textarea {
 .future {
   background-color: #77dd77;
   color: white;
+  width: 75%;
 }
 
 .saveBtn {
