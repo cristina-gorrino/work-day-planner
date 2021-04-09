@@ -12,6 +12,7 @@ displayDate();
 
 // Iterate over each of the hours in the planner
 // Compare with current hour to assign classes that correspond to past/ present/ future
+// TODO: Fix how hours are being compared. Some incorrectly labeled past or future
 function styleHourSections(){
     $.each(hourEls, function(i, hourEls){
         if (moment().format("hh a") === hourEls.textContent) {
@@ -26,6 +27,7 @@ function styleHourSections(){
 styleHourSections();
 
 // Listener for save buttons to save inputs to local storage
+// TODO: Fix so that you can update one input, but keep the rest
 $(".saveBtn").on("click", function() {
 
     var timeBlock = $(this).siblings(".hour").text();
@@ -57,3 +59,4 @@ function displayEvents (){
 }
 displayEvents();
 
+// TODO: Fix misaligned sections
