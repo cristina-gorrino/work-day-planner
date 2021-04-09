@@ -41,13 +41,19 @@ localStorage.setItem("eventsArr", JSON.stringify(eventsArr));
 //if (inputEls === )// check if empty on reload
 function displayEvents (){
     storedEvents = JSON.parse(localStorage.getItem("eventsArr"));
-
+    // Create array of all hours in timeblocks
+    var hoursArr = [];
+    for (var k = 0; k <hourEls.length; k++) {
+        hoursArr.push(hourEls[k].textContent);
+    }
+    // Check if the hour of the stored event exists in any of the available hours
+    // Place the stored event in the input element corresponding to the hour
     for (var i = 0; i < storedEvents.length; i++) {
-        if (hourEls[i].textContent === storedEvents[i].timeBlock) {
-            hourEls[i].nextElementSibling.value = storedEvents[i].event;
+        if (hoursArr.includes(storedEvents[i].timeBlock)) {
+            var j = hoursArr.indexOf(storedEvents[i].timeBlock);
+            hourEls[j].nextElementSibling.value = storedEvents[i].event;
         }
     }
 }
 displayEvents();
-
 
