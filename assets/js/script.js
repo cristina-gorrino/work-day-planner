@@ -41,15 +41,12 @@ localStorage.setItem("eventsArr", JSON.stringify(eventsArr));
 //if (inputEls === )// check if empty on reload
 function displayEvents (){
     storedEvents = JSON.parse(localStorage.getItem("eventsArr"));
-    console.log(hourEls.text());
-    console.log(hourEls.text() === storedEvents.timeBlock);
-    //for (var i = 0; i < storedEvents.length; i++) {
-        if ($.each(hourEls).text() === storedEvents.timeBlock) {
-            console.log("match");
-            hourEls.siblings("input").val() = storedEvents.event;
-            console.log(hourEls.siblings("input").val());
+
+    for (var i = 0; i < storedEvents.length; i++) {
+        if (hourEls[i].textContent === storedEvents[i].timeBlock) {
+            hourEls[i].nextElementSibling.value = storedEvents[i].event;
         }
-    //}
+    }
 }
 displayEvents();
 
