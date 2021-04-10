@@ -12,17 +12,23 @@ displayDate();
 
 // Iterate over each of the hours in the planner
 // Compare with current hour to assign classes that correspond to past/ present/ future
-// TODO: Fix how hours are being compared. Some incorrectly labeled past or future
 function styleHourSections(){
-    $.each(hourEls, function(i, hourEls){
-        if (moment().format("hh a") === hourEls.textContent) {
-            hourEls.nextElementSibling.className = "present";
-        } else if (moment().format("hh a") > hourEls.textContent) {
-            hourEls.nextElementSibling.className = "past";
-        } else if (moment().format("hh a") < hourEls.textContent) {
-            hourEls.nextElementSibling.className = "future";
+
+    var currentTime = moment();
+    var currentHr = currentTime.format("hh a");
+    var uiHrsArray = []
+
+   for (var i =0; i< hourEls.length; i++){
+        uiHrsArray.push(hourEls[i].getAttribute("data-hour"));
+
+        if (moment(currentHr,"hh a").isSame(moment(uiHrsArray[i],"hh a"),"hour")) {
+            hourEls[i].nextElementSibling.className = "present";
+        } else if (moment(currentHr,"hh a").isAfter(moment(uiHrsArray[i],"hh a"),"hour")) {
+            hourEls[i].nextElementSibling.className = "past";
+        } else if (moment(currentHr,"hh a").isBefore(moment(uiHrsArray[i],"hh a"),"hour")) { 
+            hourEls[i].nextElementSibling.className = "future";
         }
-    });
+   }
 }
 styleHourSections();
 
@@ -74,5 +80,3 @@ function displayEvents (){
     }
 }
 displayEvents();
-
-// TODO: Fix misaligned sections
