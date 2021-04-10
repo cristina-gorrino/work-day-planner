@@ -32,7 +32,23 @@ $(".saveBtn").on("click", function() {
 
     var timeBlock = $(this).siblings(".hour").text();
     var event = $(this).siblings("input").val();
-    eventsArr.push({"timeBlock": timeBlock, "event": event});
+    // if hour exists within eventsArr, then modify timeblock
+    //if hour does not exist yet, push new pair
+    if (eventsArr = []) {
+        eventsArr.push({"timeBlock": timeBlock, "event": event});
+    }
+    // check for an existing stored event at that time, and update it    
+    for (var i =0; i< eventsArr.length; i++) {
+        if (eventsArr[i].timeBlock.includes(timeBlock)) {
+            eventsArr[i].event = event;
+        } else { // TODO: Still overwrites if a new timeblock is saved
+            eventsArr.push({"timeBlock": timeBlock, "event": event}); // just this line was the old version
+        }
+    
+    }
+    
+    
+
 
 
 localStorage.setItem("eventsArr", JSON.stringify(eventsArr));
