@@ -12,4 +12,4 @@ This app is a day planner that allows a user to keep an agenda of events in hour
 
 Below are some examples of the look and functionality of this app.
 
-![Start page of the quiz](./assets/images/js-quiz1.png "Start Quiz")
+![Work schedule planner with events saved](./assets/images/day_planner_with_events.png "Save events in your schedule")
