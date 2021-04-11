@@ -10,6 +10,6 @@ This app is a day planner that allows a user to keep an agenda of events in hour
 
 ## Visuals
 
-Below are some examples of the look and functionality of this app.
+Below is an example of the look and functionality of this app.
 
 ![Work schedule planner with events saved](./assets/images/day_planner_with_events.png "Save events in your schedule")
